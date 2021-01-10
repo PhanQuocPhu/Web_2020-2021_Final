@@ -1,6 +1,5 @@
 package models;
 
-import beans.Category;
 import beans.Product;
 import org.sql2o.Connection;
 import utils.DbUtils;
@@ -13,5 +12,14 @@ public class ProductModel {
         try (Connection con = DbUtils.getConnection()) {
             return con.createQuery(sql).executeAndFetch(Product.class);
         }
+    }
+    public  static List<Product> findByCatId(int catID) {
+        String sql = "select * from products where CatID = :CatID";
+        try(Connection con = DbUtils.getConnection()) {
+           return con.createQuery(sql)
+                   .addParameter("CatID", catID)
+                   .executeAndFetch(Product.class);
+        }
+
     }
 }
