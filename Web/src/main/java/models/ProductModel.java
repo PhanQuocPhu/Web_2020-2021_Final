@@ -5,7 +5,7 @@ import org.sql2o.Connection;
 import utils.DbUtils;
 
 import java.util.List;
-
+import java.util.Optional;
 public class ProductModel {
     public static List<Product> getAllProducts () {
         String sql = "select * from products";
@@ -19,6 +19,20 @@ public class ProductModel {
            return con.createQuery(sql)
                    .addParameter("CatID", catID)
                    .executeAndFetch(Product.class);
+        }
+
+    }
+    public  static Optional<Product> findById(int id) {
+        String sql = "select * from products where ProID = :ProID";
+        try(Connection con = DbUtils.getConnection()) {
+            List<Product> list =
+                    con.createQuery(sql)
+                    .addParameter("ProID", id)
+                    .executeAndFetch(Product.class);
+            if(list.size() == 0) {
+                return Optional.empty();
+            }
+            return Optional.ofNullable(list.get(0));
         }
 
     }

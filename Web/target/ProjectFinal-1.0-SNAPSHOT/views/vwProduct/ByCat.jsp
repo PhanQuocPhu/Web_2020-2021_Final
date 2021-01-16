@@ -34,7 +34,7 @@
                             <c:forEach var ="c" items="${products}">
                                 <div class="col-sm-4 mb-4">
                                     <div class="card h-100">
-                                        <img src="${pageContext.request.contextPath}/public/imgs/sp/${c.proID}/doante.jpg" alt="${c.proName}" class="card-img-top"/>
+                                        <img src="${pageContext.request.contextPath}/public/imgs/sp/6/main.png" alt="${c.proName}" class="card-img-top"/>
                                         <div class="card-body">
                                             <h6 class="card-title">${c.proName}</h6>
                                             <h5 class="card-title text-value">
@@ -43,7 +43,7 @@
                                             <p class="card-text">${c.tinyDes}</p>
                                         </div>
                                         <div class="card-footer text-muted">
-                                            <a href="#" class="btn btn-sm btn-outline-primary" role = "button">
+                                            <a href="${pageContext.request.contextPath}/Product/Detail?id=${c.proID}" class="btn btn-sm btn-outline-primary" role = "button">
                                                 <i class="fa fa-eye" aria-hidden="true"></i> Details
                                             </a>
                                             <a href="#" class="btn btn-sm btn-outline-success" role = "button">
