@@ -40,13 +40,11 @@ public class AdminCategoryServlet extends HttpServlet {
         Category c = new Category(-1, name);
         CategoryModel.saveCategory(c);
         ServletUtils.redirect("/Admin/Category", request, response);
-
     }
     private void deleteCategory(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("CatID"));
         CategoryModel.delete(id);
         ServletUtils.redirect("/Admin/Category", request, response);
-
     }
 
     private void updateCategory(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
