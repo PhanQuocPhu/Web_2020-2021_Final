@@ -8,7 +8,7 @@
 <%@tag pageEncoding="utf-8"%>
 <%@attribute name="css" fragment="true" required="false" %>
 <%@attribute name="js" fragment="true" required="false" %>
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,23 +17,46 @@
     <title>E-Commerce Web Application</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<%--    <link rel="stylesheet" href="${pageContext.request.contextPath}/public/css/home.css">--%>
     <jsp:invoke fragment="css"/>
-</head>
+    <style type="text/css">
+        .content {
+            padding: 16px;
+        }
 
+        .sticky {
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+
+        .sticky + .content {
+            padding-top: 62px;
+        }
+    </style>
+</head>
 <body>
-<jsp:include page="../../views/partials/nav.jsp"/>
-    <div class="container-fluid mt-3">
-        <div class="row">
-            <div class="col-sm-3">
-                <jsp:include page="../../views/partials/left.jsp"/>
-            </div>
-            <div class="col-sm-9 mb-3">
-                <jsp:doBody />
-            </div>
-        </div>
-    </div>
+
+    <jsp:doBody />
+
+    <jsp:include page="../../views/partials/footer.jsp"/>
+
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    window.onscroll = function() {myFunction()};
+
+    var navbar = document.getElementById("navbar");
+    var sticky = navbar.offsetTop;
+
+    function myFunction() {
+        if (window.pageYOffset >= sticky) {
+            navbar.classList.add("sticky")
+        } else {
+            navbar.classList.remove("sticky");
+        }
+    }
+</script>
 <jsp:invoke fragment="js"/>
 </body>
 

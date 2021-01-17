@@ -8,53 +8,66 @@
 <jsp:useBean id="authUser" scope="session" type="beans.User" />
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-</button>
-<div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-    <a class="navbar-brand" href="#">Hidden brand</a>
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <c:choose>
-            <c:when test="${auth}">
-                <form id="frmLogout" method="post" action="${pageContext.request.contextPath}/Account/Logout"></form>
-                <li class="nav-item dropdown">
-                    <a class="dropdown-toggle nav-link" href="" role="button" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Hi, <b>${authUser.username} !</b>
-                    </a>
+<nav id ="navbar"class="navbar navbar-expand-lg navbar-light d-flex justify-content-around" style="background: black; padding-left:  30px; padding-right: 30px; z-index: 999 ">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="${pageContext.request.contextPath}/Account/Profile">
-                            <i class="fa fa-user"></i>
-
-                            Profile</a>
-                        <a class="dropdown-item" href="javascript:$('#frmLogout').submit();">
-                            <i class="fa fa-sign-out"></i>
-                            Logout</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
-                    </div>
-                </li>
-            </c:when>
-            <c:otherwise >
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <a class="navbar-brand" href="#">
+                <img src="https://i.imgur.com/p8aGnla.png" alt="" id="img_logo" style="height: 34px; width: 136px">
+            </a>
+            <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/Account/Register">
-                        <i class="fa fa-user-plus"></i>
-                        Register <span class="sr-only">(current)</span></a>
+                    <a class="nav-link  text-white" href="#">TRANG CHỦ <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="${pageContext.request.contextPath}/Account/Login">
-                        <i class="fa fa-sign-in" aria-hidden="true"></i>
-                        Login</a>
+                    <a class="nav-link  text-white" href="#">KHÓA HỌC</a>
                 </li>
-            </c:otherwise>
-        </c:choose>
+            </ul>
 
+        </div>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2 text-white" type="search" placeholder="Search" aria-label="Search" style="background-color: rgba(0,0,0,.6);border-radius: 27px;
+               width: 300px;">
+            <button class="btn my-2 my-sm-0" type="submit">
+                <i class="fa fa-search" style="color: #f05123; font-size: 20px"></i></button>
+        </form>
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <c:choose>
+                <c:when test="${auth}">
+                    <form id="frmLogout" method="post" action="${pageContext.request.contextPath}/Account/Logout"></form>
+                    <li class="nav-item dropdown">
+                        
+                        <a class="dropdown-toggle text-white nav-link " href="" role="button" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img src="https://i.imgur.com/ZFSztUc.png" alt=""style="height: 30px; width: 30px; border-radius: 50%">
+                            Hi! <b>${authUser.username}</b>
+                        </a>
 
-    </ul>
-<%--    <form class="form-inline my-2 my-lg-0">--%>
-<%--        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">--%>
-<%--        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>--%>
-<%--    </form>--%>
-</div>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="margin: 0.5rem 0 0;">
+                            <a class="dropdown-item " href="${pageContext.request.contextPath}/Account/Profile">
+                                <i class="fa fa-user"></i>
+
+                                Profile</a>
+                            <a class="dropdown-item " href="javascript:$('#frmLogout').submit();">
+                                <i class="fa fa-sign-out"></i>
+                                Logout</a>
+                        </div>
+                    </li>
+                </c:when>
+                <c:otherwise >
+                    <li class="nav-item ">
+                        <a class="nav-link text-white" href="${pageContext.request.contextPath}/Account/Register">
+                            <i class="fa fa-user-plus text-white"></i>
+                            Register <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link text-white" href="${pageContext.request.contextPath}/Account/Login">
+                            <i class="fa fa-sign-in text-white" aria-hidden="true"></i>
+                            Login</a>
+                    </li>
+                </c:otherwise>
+            </c:choose>
+        </ul>
 </nav>
 
