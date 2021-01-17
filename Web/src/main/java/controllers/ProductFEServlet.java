@@ -23,9 +23,27 @@ public class ProductFEServlet extends HttpServlet {
         switch (path){
             case "/ByCat":
                 int catID = Integer.parseInt(request.getParameter("id"));
-                List<Product> list = ProductModel.findByCatId(catID);
+                request.setAttribute("catID", catID);
+                int page = Integer.parseInt(request.getParameter("id"));
+                final int LIMIT = 6;
+                int currentPage = 1;
+                if(request.getParameter("page")!=null) {
+                    currentPage = Integer.parseInt(request.getParameter("page"));
+                }
+                int offset = (currentPage - 1)*LIMIT;
+                request.setAttribute("currentPage", currentPage);
+                int total = ProductModel.countByCatID(catID);
+                int nPages = total/LIMIT;
+                if(total % LIMIT > 0)
+                    nPages++;
+                int[] pages = new int[nPages];
+                for(int i = 0; i< nPages; i++) {
+                    pages[i] = i + 1;
+                }
+                request.setAttribute("pages", pages);
+                List<Product> list = ProductModel.findByCatId(catID, LIMIT,offset);
                 request.setAttribute("products", list);
-                List<Category> categories = (List<Category>)request.getAttribute("categoriesWithDetails");
+                //List<Category> categories = (List<Category>)request.getAttribute("categoriesWithDetails");
                 ServletUtils.forward("/views/vwProduct/ByCat.jsp", request, response);
                 break;
             case "/Detail":
@@ -41,7 +59,7 @@ public class ProductFEServlet extends HttpServlet {
                 }
                 break;
             default:
-                ServletUtils.redirect("NotFound", request, response);
+                ServletUtils.redirect("/NotFound", request, response);
                 break;
         }
     }

@@ -5,13 +5,6 @@
   Time: 8:04 PM
   To change this template use File | Settings | File Templates.
 --%>
-<%--
-  Created by IntelliJ IDEA.
-  User: miqng
-  Date: 1/3/2021
-  Time: 7:30 AM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -54,46 +47,40 @@
                                 </div>
                             </c:forEach>
                         </div>
-<%--                        <table class="table">--%>
-<%--                            <thead>--%>
-<%--                            <tr>--%>
-<%--                                <th scope="col ">Product id</th>--%>
-<%--                                <th scope="col"> Product Name</th>--%>
-<%--                                <th scope="col"> Description</th>--%>
-<%--                                <th scope="col" class="text-right">Price</th>--%>
-<%--                                <th scope="col" class="text-right">Quantity</th>--%>
-<%--                                <th scope="col">&nbsp</th>--%>
-<%--                            </tr>--%>
-<%--                            </thead>--%>
-<%--                            <tbody>--%>
-<%--                            <c:forEach var ="c" items = "${products}">--%>
-<%--                                <tr>--%>
-<%--                                    <th scope="row">--%>
-<%--                                            ${c.proID}--%>
-<%--                                    </th>--%>
-<%--                                    <td>--%>
-<%--                                            ${c.proName}--%>
-<%--                                    </td>--%>
-<%--                                    <td>--%>
-<%--                                            ${c.tinyDes}--%>
-<%--                                    </td>--%>
-<%--                                    <td class="text-right">--%>
-<%--                                        <fmt:formatNumber value="${c.price}" type="number"/>--%>
-<%--                                    </td>--%>
-<%--                                    <td>--%>
-<%--                                            ${c.quantity}--%>
-<%--                                    </td>--%>
-<%--                                    <td class="text-right">--%>
-<%--                                        <a  role ="button"--%>
-<%--                                            class="btn btn-sm btn-primary">--%>
-<%--                                            <i class="fa fa-pencil" aria-hidden="true"></i>--%>
-<%--                                        </a>--%>
-<%--                                    </td>--%>
-<%--                                </tr>--%>
-<%--                            </c:forEach>--%>
-<%--                            </tbody>--%>
-<%--                        </table>--%>
                     </div>
+                    <nav aria-label="Page navigation example d-flex">
+                        <ul class="pagination justify-content-center">
+                                <c:if test="${currentPage !=1}">
+                                    <li class="page-item">
+                                        <a class="page-link" href="?id=${catID}&page=${currentPage-1}" tabindex="-1">
+                                            <i class="fa fa-fast-backward" aria-hidden="true"></i>
+                                        </a>
+                                    </li>
+                                </c:if>
+                            <c:forEach var="p" items="${pages}">
+                                <c:choose>
+                                    <c:when test ="${p == currentPage}">
+                                        <li class="page-item active">
+                                            <a class="page-link" href="">${p}</a>
+                                        </li>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <li class="page-item">
+                                            <a class="page-link" href="?id=${catID}&page=${p}">${p}</a>
+                                        </li>
+                                    </c:otherwise>
+                                </c:choose>
+
+                            </c:forEach>
+<%--                            <c:if test="${currentPage < pages}">--%>
+                                <li class="page-item">
+                                    <a class="page-link" href="?id=${catID}&page=${currentPage+1}" tabindex="-1">
+                                        <i class="fa fa-fast-forward" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+<%--                            </c:if>--%>
+                        </ul>
+                    </nav>
                 </c:otherwise>
             </c:choose>
         </div>

@@ -112,7 +112,7 @@ public class AccountServlet extends HttpServlet {
                 out.flush();
                 break;
             default:
-                ServletUtils.redirect("NotFound", request, response);
+                ServletUtils.redirect("/NotFound", request, response);
                 break;
         }
 

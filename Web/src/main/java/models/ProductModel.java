@@ -13,14 +13,15 @@ public class ProductModel {
             return con.createQuery(sql).executeAndFetch(Product.class);
         }
     }
-    public  static List<Product> findByCatId(int catID) {
-        String sql = "select * from products where CatID = :CatID";
+    public  static List<Product> findByCatId(int catID, int limit, int offset) {
+        String sql = "select * from products where CatID = :CatID limit :limit offset :offset ";
         try(Connection con = DbUtils.getConnection()) {
            return con.createQuery(sql)
                    .addParameter("CatID", catID)
+                   .addParameter("limit", limit)
+                   .addParameter("offset", offset)
                    .executeAndFetch(Product.class);
         }
-
     }
     public  static Optional<Product> findById(int id) {
         String sql = "select * from products where ProID = :ProID";
@@ -35,5 +36,13 @@ public class ProductModel {
             return Optional.ofNullable(list.get(0));
         }
 
+    }
+    public static int countByCatID(int catID) {
+        String sql = "select count(*) from products where CatID = :CatID";
+        try (Connection con = DbUtils.getConnection()) {
+            return con.createQuery(sql)
+                    .addParameter("CatID", catID)
+                    .executeScalar(Integer.class);
+        }
     }
 }

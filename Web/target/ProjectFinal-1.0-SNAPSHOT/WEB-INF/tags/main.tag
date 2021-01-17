@@ -27,7 +27,7 @@
             <div class="col-sm-3">
                 <jsp:include page="../../views/partials/left.jsp"/>
             </div>
-            <div class="col-sm-9">
+            <div class="col-sm-9 mb-3">
                 <jsp:doBody />
             </div>
         </div>

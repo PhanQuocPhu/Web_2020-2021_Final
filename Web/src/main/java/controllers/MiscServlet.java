@@ -46,7 +46,6 @@ public class MiscServlet extends HttpServlet {
                 if (tmp.startsWith("filename")) {
                     int idx = tmp.indexOf('=') + 2;
                     String filename = tmp.substring(idx, tmp.length() - 1);
-
                     String targetDir = this.getServletContext().getRealPath("public/clips");
                     File dir = new File(targetDir);
                     if (!dir.exists()) {
