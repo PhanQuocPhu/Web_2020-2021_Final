@@ -8,7 +8,7 @@
 <jsp:useBean id="authUser" scope="session" type="beans.User" />
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<nav id ="navbar"class="navbar navbar-expand-lg navbar-light d-flex justify-content-around" style="background: black; padding-left:  30px; padding-right: 30px; z-index: 999 ">
+<nav id ="navbar"class="navbar navbar-expand-lg navbar-light d-flex justify-content-around" style="padding-left:  30px; padding-right: 30px; z-index: 999 ">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -19,10 +19,10 @@
             </a>
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link  text-white" href="#">TRANG CHỦ <span class="sr-only">(current)</span></a>
+                    <a class="nav-link  text-white " href="#">TRANG CHỦ <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  text-white" href="#">KHÓA HỌC</a>
+                    <a class="nav-link  text-white  href="#">KHÓA HỌC</a>
                 </li>
             </ul>
 
@@ -31,7 +31,7 @@
             <input class="form-control mr-sm-2 text-white" type="search" placeholder="Search" aria-label="Search" style="background-color: rgba(0,0,0,.6);border-radius: 27px;
                width: 300px;">
             <button class="btn my-2 my-sm-0" type="submit">
-                <i class="fa fa-search" style="color: #f05123; font-size: 20px"></i></button>
+                <i class="fa fa-search" style="color: #b80257; font-size: 20px"></i></button>
         </form>
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <c:choose>
@@ -58,12 +58,12 @@
                 <c:otherwise >
                     <li class="nav-item ">
                         <a class="nav-link text-white" href="${pageContext.request.contextPath}/Account/Register">
-                            <i class="fa fa-user-plus text-white"></i>
+                            <i class="fa fa-user-plus "></i>
                             Register <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item ">
                         <a class="nav-link text-white" href="${pageContext.request.contextPath}/Account/Login">
-                            <i class="fa fa-sign-in text-white" aria-hidden="true"></i>
+                            <i class="fa fa-sign-in " aria-hidden="true"></i>
                             Login</a>
                     </li>
                 </c:otherwise>

@@ -20,19 +20,50 @@
 <%--    <link rel="stylesheet" href="${pageContext.request.contextPath}/public/css/home.css">--%>
     <jsp:invoke fragment="css"/>
     <style type="text/css">
-        .content {
-            padding: 16px;
-        }
-
         .sticky {
             position: fixed;
             top: 0;
             width: 100%;
         }
-
-        .sticky + .content {
-            padding-top: 62px;
+        .navbar {
+            background-color: transparent;
         }
+        .navbar.sticky {
+            background-color: #151515 !important;
+            transition: all linear 0.3s;
+        }
+        .btn:hover {
+            opacity: 0.9;
+
+        }
+        .nav-item:hover .nav-link {
+            color: #b80257 !important;
+            transition: all linear 0.3s;
+        }
+        .nav-item:hover .ion {
+            color: #b80257 !important;
+            transition: all linear 0.3s;
+        }
+        .nav-link {
+            padding: 5px 17px 5px !important;
+            font-weight: 600;
+            text-align: center;
+        }
+        .ion {
+            font-size: 26px;
+        }
+        .title_footer {
+            color: white;
+        }
+        .link_footer {
+            color: rgba(255,255,255,.7);
+            transition: all ease-in-out 0.2s;
+        }
+        .link_footer:hover {
+            text-decoration: none;
+            color: #b80257;
+        }
+
     </style>
 </head>
 <body>
@@ -47,14 +78,17 @@
     window.onscroll = function() {myFunction()};
 
     var navbar = document.getElementById("navbar");
-    var sticky = navbar.offsetTop;
 
     function myFunction() {
-        if (window.pageYOffset >= sticky) {
-            navbar.classList.add("sticky")
-        } else {
-            navbar.classList.remove("sticky");
-        }
+        window.addEventListener('scroll',function(){
+            if(window.pageYOffset>62){
+                navbar.classList.add('sticky')
+            }
+            else{
+                navbar.classList.remove('sticky')
+            }
+        });
+
     }
 </script>
 <jsp:invoke fragment="js"/>

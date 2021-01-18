@@ -1,5 +1,6 @@
 package models;
 
+import beans.Course;
 import beans.Product;
 import org.sql2o.Connection;
 import utils.DbUtils;
@@ -7,10 +8,11 @@ import utils.DbUtils;
 import java.util.List;
 import java.util.Optional;
 public class ProductModel {
-    public static List<Product> getAllProducts () {
-        String sql = "select * from products";
+    public static List<Course> getAllCourses () {
+        String sql = "select * from course";
         try (Connection con = DbUtils.getConnection()) {
-            return con.createQuery(sql).executeAndFetch(Product.class);
+            System.out.println("hihi");
+            return con.createQuery(sql).executeAndFetch(Course.class);
         }
     }
     public  static List<Product> findByCatId(int catID, int limit, int offset) {

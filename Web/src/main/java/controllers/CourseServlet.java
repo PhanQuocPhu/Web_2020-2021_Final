@@ -1,8 +1,6 @@
 package controllers;
 
 import beans.Course;
-import beans.Product;
-import models.CourseModel;
 import models.ProductModel;
 import utils.ServletUtils;
 
@@ -14,17 +12,17 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "AdminProductServlet", urlPatterns = "/Admin/Product/*")
-public class AdminProductServlet extends HttpServlet {
+@WebServlet(name = "CourseServlet",  urlPatterns = "/Course/*")
+public class CourseServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String path = request.getPathInfo();
         if (path == null || path.equals("/")) {
             path = "/Index";
         }
-
         switch (path) {
             case "/Index":
                 List<Course> list = ProductModel.getAllCourses();

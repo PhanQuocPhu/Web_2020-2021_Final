@@ -7,6 +7,9 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+
 <t:main>
     <jsp:attribute name="css">
          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -15,31 +18,31 @@
     </jsp:attribute>
     <jsp:body>
         <div class="bg" style="background-image: url('https://fullstack.edu.vn/assets/images/home-img.jpg');
-    height: 100vh;
-    background-repeat: no-repeat;
-    background-size: cover;
-    top: 0;
-    position: relative;
-    left: 0;
-    right: 0;
-    bottom: 0;">
+            height: 100vh;
+            background-repeat: no-repeat;
+            background-size: cover;
+            top: 0;
+            position: relative;
+            left: 0;
+            right: 0;
+            bottom: 0;">
             <div class="overlay" style="background-color: rgba(0,0,0,.6);;
-    height: 100vh;
-    background-repeat: no-repeat;
-    background-size: cover;
-    top: 0;
-    left: 0;
-    z-index: 2;
-    position: absolute;
-    right: 0;
-    bottom: 0;"></div>
+            height: 100vh;
+            background-repeat: no-repeat;
+            background-size: cover;
+            top: 0;
+            left: 0;
+            z-index: 2;
+            position: absolute;
+            right: 0;
+            bottom: 0;"></div>
             <jsp:include page="../../views/partials/nav.jsp"/>
             <div class="container-fluid mt-3 position-absolute" style="padding-left:  30px; z-index: 3;padding-right: 30px">
                 <div class="wrapper " style="">
                     <div class="text-white" style="margin-top: 187px">
-                        <h5 class="" style="font-size: 14px;
+                        <h4 class="" style="font-size: 14px;
                     line-height: 20px;
-                    margin: 0 0 8px;">Cùng nhau tạo ra nhiều giá trị hơn cho xã hội!</h5>
+                    margin: 0 0 8px;">Cùng nhau tạo ra nhiều giá trị hơn cho xã hội!</h4>
                         <h1 class="" style="text-transform: uppercase; font-size: 3.2rem;
                     line-height: 4.6rem;
                     font-weight: 700;
@@ -106,6 +109,34 @@
                     justify-content: center;"
                 >TẤT CẢ KHÓA HỌC</a>
             </div>
+            <c:forEach var ="c" items = "${course}">
+                ${course.size()}
+                ${c.courseName}
+            <div class="row" >
+                <div class="col-sm-4">
+                  <div class="card">
+                      <div class="card-header">
+                          <img src="https://img.youtube.com/vi/R6plN3FvzFY/sddefault.jpg" alt="" class="h-100 w-100">
+                      </div>
+                      <div class="card-body">
+                          <div class="course_title">
+                                ${c.courseName}
+                          </div>
+                          <div class="course_shortDes">
+
+                          </div>
+                          <div class="course_detail">
+                              <span class="course_lecturer"></span>
+                             <span class="course_price"></span>
+                              <a href="" class="course_detail">
+
+                              </a>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+            </div>
+            </c:forEach>
         </div>
 
     </jsp:body>
