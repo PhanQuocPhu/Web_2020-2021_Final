@@ -107,7 +107,6 @@
                           <div class="course_detail d-flex mt-4">
                               <span class="course_lecturer">
                                   <i class="fa fa-user img-user"></i>
-
                                   Châu Đặng</span>
                              <span class="course_price ">
                                       <fmt:formatNumber value="${c.price}" type="number"/>

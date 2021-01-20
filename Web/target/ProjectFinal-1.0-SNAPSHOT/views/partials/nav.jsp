@@ -45,6 +45,11 @@
                         </a>
 
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="margin: 0.5rem 0 0;">
+                            <c:if test = "${authUser.permission == 2}">
+                                <a class="dropdown-item " href="${pageContext.request.contextPath}/Account/AddUser">
+                                    <i class="fa fa-tasks"></i>
+                                    Management</a>
+                            </c:if>
                             <a class="dropdown-item " href="${pageContext.request.contextPath}/Account/Profile">
                                 <i class="fa fa-user"></i>
 

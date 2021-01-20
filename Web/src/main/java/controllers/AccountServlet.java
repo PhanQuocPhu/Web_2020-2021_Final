@@ -23,6 +23,9 @@ public class AccountServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String path = request.getPathInfo();
         switch (path) {
+            case "/AddUser":
+                postAddUser(request,response);
+                break;
             case "/Register":
                 postRegister(request,response);
                 break;
@@ -54,6 +57,26 @@ public class AccountServlet extends HttpServlet {
         User user = new User(-1, username,bcryptHashString,name,email, dob,permission);
         UserModel.add(user);
         ServletUtils.redirect("/Home", request, response);
+
+    }
+    private void postAddUser(HttpServletRequest request,HttpServletResponse response)throws ServletException, IOException  {
+        String password = request.getParameter("password");
+        String bcryptHashString = BCrypt.withDefaults().hashToString(12,password.toCharArray());
+        Date dob = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+        try{
+            dob = formatter.parse(request.getParameter("dob"));
+        }
+        catch(ParseException e) {
+            e.printStackTrace();
+        }
+        String username = request.getParameter("username");
+        String name = request.getParameter("name");
+        String email = request.getParameter("email");
+        int permission = 1;
+        User user = new User(-1, username,bcryptHashString,name,email, dob,permission);
+        UserModel.add(user);
+        ServletUtils.redirect("/AddUser", request, response);
 
     }
     private void postLogin(HttpServletRequest request,HttpServletResponse response)throws ServletException, IOException  {
@@ -92,6 +115,9 @@ public class AccountServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String path = request.getPathInfo();
         switch (path){
+            case "/AddUser":
+                ServletUtils.forward("/views/vwAccount/AddUser.jsp", request, response);
+                break;
             case "/Register":
                 ServletUtils.forward("/views/vwAccount/Register.jsp", request, response);
                 break;

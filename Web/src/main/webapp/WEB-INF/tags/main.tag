@@ -100,7 +100,7 @@
 
         }
         .footer {
-            background-color: #151515;
+            background-color: #151515 !important;
         }
         .course_detail {
             justify-content: space-between;
@@ -144,6 +144,7 @@
     </style>
 </head>
 <body>
+
     <jsp:doBody />
     <jsp:include page="../../views/partials/footer.jsp"/>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>

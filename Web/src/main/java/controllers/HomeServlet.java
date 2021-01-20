@@ -33,6 +33,8 @@ public class HomeServlet extends HttpServlet {
 //                User authUser = (User) session.getAttribute("authUser");
 //                System.out.println(auth);
 //                System.out.println(authUser);
+//                List<Course> list = CourseModel.getAllCourses();
+//                request.setAttribute("course", list);
                 List<Course> list = CourseModel.getAllCourses();
                 request.setAttribute("course", list);
                 ServletUtils.forward("/views/vwHome/Index.jsp", request, response);

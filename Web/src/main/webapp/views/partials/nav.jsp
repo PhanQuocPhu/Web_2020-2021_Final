@@ -19,10 +19,10 @@
             </a>
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link  text-white " href="#">TRANG CHỦ <span class="sr-only">(current)</span></a>
+                    <a class="nav-link  text-white " href="">TRANG CHỦ <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  text-white"  href="#">KHÓA HỌC</a>
+                    <a class="nav-link  text-white"  href="">KHÓA HỌC</a>
                 </li>
             </ul>
 
@@ -45,6 +45,11 @@
                         </a>
 
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="margin: 0.5rem 0 0;">
+                            <c:if test = "${authUser.permission == 2}">
+                                <a class="dropdown-item " href="${pageContext.request.contextPath}/Account/AddUser">
+                                    <i class="fa fa-tasks"></i>
+                                    Management</a>
+                            </c:if>
                             <a class="dropdown-item " href="${pageContext.request.contextPath}/Account/Profile">
                                 <i class="fa fa-user"></i>
 
