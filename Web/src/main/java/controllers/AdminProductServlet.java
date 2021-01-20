@@ -27,9 +27,9 @@ public class AdminProductServlet extends HttpServlet {
 
         switch (path) {
             case "/Index":
-                List<Course> list = ProductModel.getAllCourses();
-                request.setAttribute("course", list);
-                System.out.println(list.size());
+//                List<Course> list = ProductModel.getAllCourses();
+//                request.setAttribute("course", list);
+//                System.out.println(list.size());
                 ServletUtils.forward("/views/vwHome/Index.jsp", request, response);
                 break;
             default:

@@ -24,10 +24,8 @@ public class CourseServlet extends HttpServlet {
             path = "/Index";
         }
         switch (path) {
-            case "/Index":
-                List<Course> list = ProductModel.getAllCourses();
-                request.setAttribute("course", list);
-                System.out.println(list.size());
+            case "/":
+
                 ServletUtils.forward("/views/vwHome/Index.jsp", request, response);
                 break;
             default:

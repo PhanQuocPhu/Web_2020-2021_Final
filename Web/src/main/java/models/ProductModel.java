@@ -8,13 +8,7 @@ import utils.DbUtils;
 import java.util.List;
 import java.util.Optional;
 public class ProductModel {
-    public static List<Course> getAllCourses () {
-        String sql = "select * from course";
-        try (Connection con = DbUtils.getConnection()) {
-            System.out.println("hihi");
-            return con.createQuery(sql).executeAndFetch(Course.class);
-        }
-    }
+
     public  static List<Product> findByCatId(int catID, int limit, int offset) {
         String sql = "select * from products where CatID = :CatID limit :limit offset :offset ";
         try(Connection con = DbUtils.getConnection()) {

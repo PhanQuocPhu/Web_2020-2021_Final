@@ -2,12 +2,12 @@ package beans;
 
 public class Course {
     int CourseID, Price, CatID,LecturerID,LevelID;
-    String CourseName, Short_Des, Full_Des;
+    String CourseName, Short_Des, Full_Des, Url;
     String Image;
     public Course () {
-        
+
     }
-    public Course(int courseID, int price, int catID, int lecturerID, int levelID, String courseName, String short_Des, String full_Des, String image) {
+    public Course(int courseID, int price, int catID, int lecturerID, int levelID, String courseName, String short_Des, String full_Des, String image, String url) {
         CourseID = courseID;
         Price = price;
         CatID = catID;
@@ -17,6 +17,15 @@ public class Course {
         Short_Des = short_Des;
         Full_Des = full_Des;
         Image = image;
+        Url = url;
+    }
+
+    public String getUrl() {
+        return Url;
+    }
+
+    public void setUrl(String url) {
+        Url = url;
     }
 
     public int getCourseID() {

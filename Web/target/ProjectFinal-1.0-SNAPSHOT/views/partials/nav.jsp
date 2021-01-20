@@ -22,7 +22,7 @@
                     <a class="nav-link  text-white " href="#">TRANG CHỦ <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  text-white  href="#">KHÓA HỌC</a>
+                    <a class="nav-link  text-white"  href="#">KHÓA HỌC</a>
                 </li>
             </ul>
 

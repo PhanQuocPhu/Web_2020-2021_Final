@@ -1,10 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: miqng
-  Date: 1/2/2021
-  Time: 9:10 PM
-  To change this template use File | Settings | File Templates.
---%>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -37,7 +31,7 @@
             right: 0;
             bottom: 0;"></div>
             <jsp:include page="../../views/partials/nav.jsp"/>
-            <div class="container-fluid mt-3 position-absolute" style="padding-left:  30px; z-index: 3;padding-right: 30px">
+            <div class="container-fluid position-absolute" style="z-index: 3;">
                 <div class="wrapper " style="">
                     <div class="text-white" style="margin-top: 187px">
                         <h4 class="" style="font-size: 14px;
@@ -57,6 +51,7 @@
                     color: #fff;
                     font-weight: 600;
                     display: flex;
+                    cursor: pointer !important;
                     height: 100%;
                     align-items: center;
                     justify-content: center;"
@@ -93,12 +88,55 @@
                 <h4 class="font-weight-bold">Khóa học nổi bật</h4>
                 <p>Những khóa học có số lượng học viên theo học nhiều nhất và có phản hồi tích cực nhất</p>
             </div>
+
+
+            <div class="row" >
+                <c:forEach var ="c" items = "${course}">
+                <div class="col-sm-4">
+                  <div class="card">
+                      <div class="card-header">
+                          <img src="${c.url}" alt="" class="h-100 w-100 course_img">
+                      </div>
+                      <div class="card-body">
+                          <div class="course_title ">
+                          ${c.courseName}
+                          </div>
+                          <div class="course_shortDes">
+                                  ${c.short_Des}
+                          </div>
+                          <div class="course_detail d-flex mt-4">
+                              <span class="course_lecturer">
+                                  <i class="fa fa-user img-user"></i>
+
+                                  Châu Đặng</span>
+                             <span class="course_price ">
+                                      <fmt:formatNumber value="${c.price}" type="number"/>
+                                  <sup>vnd</sup>
+                                 </span>
+                              <span class="course_level">
+                                <c:choose>
+                                    <c:when test = "${c.levelID == 1}">
+                                       Cơ bản
+                                    </c:when>
+
+                                    <c:otherwise>
+                                       Nâng cao
+                                    </c:otherwise>
+                                </c:choose>
+                              </span>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+                </c:forEach>
+            </div>
             <div class="d-flex justify-content-center">
                 <a href="" class="btn mb-5" style="
                     padding: 12px 20px;
                     background-color: #f05123;
                     width: 210px;
                     border-radius: 26px;
+                    margin-top: 50px;
                     font-size: 1rem;
                     text-transform: uppercase;
                     color: #fff;
@@ -109,34 +147,6 @@
                     justify-content: center;"
                 >TẤT CẢ KHÓA HỌC</a>
             </div>
-            <c:forEach var ="c" items = "${course}">
-                ${course.size()}
-                ${c.courseName}
-            <div class="row" >
-                <div class="col-sm-4">
-                  <div class="card">
-                      <div class="card-header">
-                          <img src="https://img.youtube.com/vi/R6plN3FvzFY/sddefault.jpg" alt="" class="h-100 w-100">
-                      </div>
-                      <div class="card-body">
-                          <div class="course_title">
-                                ${c.courseName}
-                          </div>
-                          <div class="course_shortDes">
-
-                          </div>
-                          <div class="course_detail">
-                              <span class="course_lecturer"></span>
-                             <span class="course_price"></span>
-                              <a href="" class="course_detail">
-
-                              </a>
-                          </div>
-                      </div>
-                  </div>
-                </div>
-            </div>
-            </c:forEach>
         </div>
 
     </jsp:body>
