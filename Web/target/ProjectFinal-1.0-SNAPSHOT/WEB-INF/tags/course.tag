@@ -18,7 +18,7 @@
     <title>E-Commerce Web Application</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<%--    <link rel="stylesheet" href="${pageContext.request.contextPath}/public/css/home.css">--%>
+    <%--    <link rel="stylesheet" href="${pageContext.request.contextPath}/public/css/home.css">--%>
     <jsp:invoke fragment="css"/>
     <style type="text/css">
         .sticky {
@@ -98,7 +98,6 @@
         }
         .footer {
             background-color: #151515 !important;
-            padding: 0 60px;
         }
         .course_detail {
             justify-content: space-between;
@@ -143,10 +142,9 @@
     </style>
 </head>
 <body>
-
-    <jsp:doBody />
-        <jsp:include page="../../views/partials/footer.jsp"/>
-
+<%--<jsp:include page="../../views/partials/nav.jsp"/>--%>
+<jsp:doBody />
+<%--<jsp:include page="../../views/partials/footer.jsp"/>--%>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>

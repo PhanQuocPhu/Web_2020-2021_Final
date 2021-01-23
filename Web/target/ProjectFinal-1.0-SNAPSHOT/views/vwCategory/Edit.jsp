@@ -10,38 +10,51 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <jsp:useBean id="category" scope="request" type="beans.Category"/>
 <t:main>
+      <jsp:attribute name="css">
+        <style type="text/css">
+            .navbar {
+                background-color: #151515 !important;
+            }
+        </style>
+    </jsp:attribute>
     <jsp:body>
-        <form method="post">
-            <div class="card">
-                <div class="card-header">
-                    <h4>Category</h4>
-                </div>
-                <div class="card-body">
-                    <div class="form-group">
-                        <label for="txtCatID">#</label>
-                        <input type="text" class="form-control" id="txtCatID" name="CatID" readonly value="${category.catID}">
+        <jsp:include page="../../views/partials/nav.jsp"/>
+        <div class="container-fluid">
+            <div class="row justify-content: center;
+    align-items: center;" >
+                <form method="post" class="mt-4" style="width: 600px; margin: 0 auto;">
+                    <div class="card">
+                        <div class="card-header" style="height: 50px;text-align: center; background-color: #b80257;color: white">
+                            <h4 style="line-height: 50px">Edit infomation Category</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="txtCatID" name="CatID" readonly value="${category.catID}">
+                            </div>
+                            <div class="form-group">
+                                <label for="txtCatName">Category</label>
+                                <input type="text" class="form-control" id="txtCatName" name="CatName" autofocus value="${category.catName}">
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a class="btn btn-primary" href="${pageContext.request.contextPath}/Admin/Category/" role="button">
+                                <i class="fa fa-backward" aria-hidden="true"></i>
+                                List
+                            </a>
+                            <button type="submit" class="btn btn-outline-danger" formaction="${pageContext.request.contextPath}/Admin/Category/Delete">
+                                <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                Delete
+                            </button>
+                            <button type="submit" class="btn btn-outline-success" formaction="${pageContext.request.contextPath}/Admin/Category/Update">
+                                <i class="fa fa-check" aria-hidden="true"></i>
+                                Save
+                            </button>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="txtCatName">Category</label>
-                        <input type="text" class="form-control" id="txtCatName" name="CatName" autofocus value="${category.catName}">
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <a class="btn btn-primary" href="${pageContext.request.contextPath}/Admin/Category/" role="button">
-                        <i class="fa fa-backward" aria-hidden="true"></i>
-                        List
-                    </a>
-                    <button type="submit" class="btn btn-outline-danger" formaction="${pageContext.request.contextPath}/Admin/Category/Delete">
-                        <i class="fa fa-trash-o" aria-hidden="true"></i>
-                        Delete
-                    </button>
-                    <button type="submit" class="btn btn-outline-success" formaction="${pageContext.request.contextPath}/Admin/Category/Update">
-                        <i class="fa fa-check" aria-hidden="true"></i>
-                        Save
-                    </button>
-                </div>
+                </form >
             </div>
-        </form>
+
+        </div>
     </jsp:body>
 </t:main>
 

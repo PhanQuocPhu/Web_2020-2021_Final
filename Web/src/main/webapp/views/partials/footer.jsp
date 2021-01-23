@@ -6,8 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" %>
+
 <div class="footer">
-    <div class="container-fluid">
         <div class=" row" style=" background-color: #151515;
     padding: 80px 0 110px 0;
     transition: all ease-in-out .3s;">
@@ -37,7 +37,5 @@
                 <p class="" style="color: rgba(255,255,255,.7);">hoaimiqng © 2021 All rights reserved.</p>
             </div>
         </div>
-
-    </div>
 </div>
 

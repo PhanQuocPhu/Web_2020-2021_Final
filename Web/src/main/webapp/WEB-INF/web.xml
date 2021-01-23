@@ -21,6 +21,10 @@
         <filter-name>AuthenticationFilter</filter-name>
         <url-pattern>/Account/Profile</url-pattern>
         <url-pattern>/Account/AddUser</url-pattern>
+        <url-pattern>/Admin/Category</url-pattern>
+        <url-pattern>/Admin/Category/Add</url-pattern>
+
+
     </filter-mapping>
     <jsp-config>
         <jsp-property-group>

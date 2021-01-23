@@ -84,9 +84,7 @@
         }
         .course_img {
             height: 218px !important;
-            background-color: #fff;
             transition: all .3s ease-in-out;
-            background-color: #ccc;
             border-top-left-radius: 7px !important;
             border-top-right-radius: 7px !important;
         }
@@ -97,10 +95,10 @@
         .card:hover .course_img {
             opacity: .7;
             transform: scale3D(1.01, 1.01, 1);
-
         }
         .footer {
             background-color: #151515 !important;
+            padding: 0 60px;
         }
         .course_detail {
             justify-content: space-between;
@@ -141,12 +139,14 @@
         .col-sm-4 {
             margin-bottom: 20px;
         }
+
     </style>
 </head>
 <body>
 
     <jsp:doBody />
-    <jsp:include page="../../views/partials/footer.jsp"/>
+        <jsp:include page="../../views/partials/footer.jsp"/>
+
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>

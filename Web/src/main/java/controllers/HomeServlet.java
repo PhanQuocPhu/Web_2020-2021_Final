@@ -36,7 +36,7 @@ public class HomeServlet extends HttpServlet {
 //                List<Course> list = CourseModel.getAllCourses();
 //                request.setAttribute("course", list);
                 List<Course> list = CourseModel.getAllCourses();
-                request.setAttribute("course", list);
+                request.setAttribute("course", list.subList(0,6));
                 ServletUtils.forward("/views/vwHome/Index.jsp", request, response);
                 break;
             case "/About":

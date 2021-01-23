@@ -63,6 +63,7 @@
         <div class="container-fluid">
             <div class="module d-flex justify-content-around text-center pt-5">
                 <div class="index-module">
+                    
                     <img src="https://fullstack.edu.vn/images/feature-1.png?32035f34c520f99c24c91ef22921b547"
                          alt="" style="width: 76px; height: 76px;">
                     <h5 class="mt-5">
@@ -95,7 +96,9 @@
                 <div class="col-sm-4">
                   <div class="card">
                       <div class="card-header">
+                          <a href="${pageContext.request.contextPath}/Course/Detail?id=${c.courseID}">
                           <img src="${c.url}" alt="" class="h-100 w-100 course_img">
+                          </a>
                       </div>
                       <div class="card-body">
                           <div class="course_title ">
@@ -130,7 +133,7 @@
                 </c:forEach>
             </div>
             <div class="d-flex justify-content-center">
-                <a href="" class="btn mb-5" style="
+                <a href="${pageContext.request.contextPath}/Course" class="btn mb-5" style="
                     padding: 12px 20px;
                     background-color: #f05123;
                     width: 210px;
@@ -147,6 +150,5 @@
                 >TẤT CẢ KHÓA HỌC</a>
             </div>
         </div>
-
     </jsp:body>
 </t:main>

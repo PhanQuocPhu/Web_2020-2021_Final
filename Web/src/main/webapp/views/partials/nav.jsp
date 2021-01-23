@@ -19,10 +19,10 @@
             </a>
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link  text-white " href="">TRANG CHỦ <span class="sr-only">(current)</span></a>
+                    <a class="nav-link  text-white " href="${pageContext.request.contextPath}/Home">TRANG CHỦ <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link  text-white"  href="">KHÓA HỌC</a>
+                    <a class="nav-link  text-white"  href="${pageContext.request.contextPath}/Admin/Product">KHÓA HỌC</a>
                 </li>
             </ul>
 
@@ -38,17 +38,25 @@
                 <c:when test="${auth}">
                     <form id="frmLogout" method="post" action="${pageContext.request.contextPath}/Account/Logout"></form>
                     <li class="nav-item dropdown">
-                        
                         <a class="dropdown-toggle text-white nav-link " href="" role="button" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img src="https://i.imgur.com/ZFSztUc.png" alt=""style="height: 30px; width: 30px; border-radius: 50%">
                             Hi! <b>${authUser.username}</b>
                         </a>
 
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="margin: 0.5rem 0 0;">
+                            <c:if test = "${authUser.permission == 1}">
+                                <a class="dropdown-item " href="${pageContext.request.contextPath}/Admin/Category">
+                                    <i class="fa fa-tasks"></i>
+                                    Management category</a>
+                                <a class="dropdown-item " href="${pageContext.request.contextPath}/Course">
+                                    <i class="fa fa-tasks"></i>
+                                    Management course</a>
+                            </c:if>
                             <c:if test = "${authUser.permission == 2}">
                                 <a class="dropdown-item " href="${pageContext.request.contextPath}/Account/AddUser">
                                     <i class="fa fa-tasks"></i>
                                     Management</a>
+
                             </c:if>
                             <a class="dropdown-item " href="${pageContext.request.contextPath}/Account/Profile">
                                 <i class="fa fa-user"></i>
