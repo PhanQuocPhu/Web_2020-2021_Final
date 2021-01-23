@@ -96,13 +96,15 @@
                 <div class="col-sm-4">
                   <div class="card">
                       <div class="card-header">
-                          <a href="${pageContext.request.contextPath}/Course/Detail?id=${c.courseID}">
+                          <a href="${pageContext.request.contextPath}/Admin/Product/Detail?id=${c.courseID}">
                           <img src="${c.url}" alt="" class="h-100 w-100 course_img">
                           </a>
                       </div>
                       <div class="card-body">
                           <div class="course_title ">
-                          ${c.courseName}
+                              <a href="${pageContext.request.contextPath}/Admin/Product/Detail?id=${c.courseID}">
+                                      ${c.courseName}
+                              </a>
                           </div>
                           <div class="course_shortDes">
                                   ${c.short_Des}
@@ -133,7 +135,7 @@
                 </c:forEach>
             </div>
             <div class="d-flex justify-content-center">
-                <a href="${pageContext.request.contextPath}/Course" class="btn mb-5" style="
+                <a href="${pageContext.request.contextPath}/Admin/Product" class="btn mb-5" style="
                     padding: 12px 20px;
                     background-color: #f05123;
                     width: 210px;

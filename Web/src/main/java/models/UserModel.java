@@ -1,5 +1,7 @@
 package models;
 
+import beans.Course;
+import beans.Product;
 import org.sql2o.Connection;
 import utils.DbUtils;
 
@@ -20,7 +22,20 @@ public class UserModel {
                     .executeUpdate();
         }
     }
+    public  static Optional<User> findById(int id) {
+        String sql = "select * from users where id = :id";
+        try(Connection con = DbUtils.getConnection()) {
+            List<User> list =
+                    con.createQuery(sql)
+                            .addParameter("id", id)
+                            .executeAndFetch(User.class);
+            if(list.size() == 0) {
+                return Optional.empty();
+            }
+            return Optional.ofNullable(list.get(0));
+        }
 
+    }
 
     public static Optional<User> findByUserName(String username) {
         final String sql = "select * from users where username = :username";

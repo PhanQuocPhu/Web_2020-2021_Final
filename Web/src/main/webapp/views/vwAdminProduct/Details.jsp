@@ -13,6 +13,7 @@
 <jsp:useBean id="course" scope="request" type="beans.Course" />
 
 <t:main>
+
     <jsp:attribute name="css">
          <style type="text/css">
              .navbar {
@@ -93,7 +94,6 @@
             <div class="row">
                 <div class="col-sm-6">
                     <img src="${course.url}" alt="" class="h-100 w-100 course_image" >
-
                 </div>
                 <div class="col-sm-6">
                     <h4>${course.courseName}</h4>
@@ -103,7 +103,6 @@
                              <c:when test = "${course.levelID == 1}">
                                  Cơ bản
                              </c:when>
-
                              <c:otherwise>
                                  Nâng cao
                              </c:otherwise>
@@ -130,7 +129,6 @@
                 </div>
             </div>
         </div>
-
     </jsp:body>
 
 </t:main>

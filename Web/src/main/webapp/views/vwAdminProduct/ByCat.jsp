@@ -11,22 +11,29 @@
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 
 <t:main>
+    <jsp:attribute name="css">
+    <style type="text/css">
+        .navbar {
+            background-color: #151515 !important;
+        }
+    </style>
+    </jsp:attribute>
     <jsp:body>
+        <jsp:include page="../../views/partials/nav.jsp"/>
         <div class="card">
             <c:choose>
                 <c:when test ="${products.size() == 0}">
-                    <div class="card-header">
-                        <p> Không có dữ liệu</p>
+                    <div class="card-header d-flex">
+                        <img src="https://i.imgur.com/eNEfDn0.png" alt="" class="" style="margin: 20px auto">
                     </div>
                 </c:when>
                 <c:otherwise>
-                    <div class="card-header">
-                        Product
-                    </div>
+<%--                    <div class="card-header">--%>
+<%--                    </div>--%>
                     <div class="card-body">
                         <div class="row ">
                             <c:forEach var ="c" items="${products}">
-                                <div class="col-sm-4 mb-4">
+                                <div class="col-sm-3 mb-4">
                                     <div class="card h-100">
                                         <img src="${c.url}" alt="${c.courseName}" class="card-img-top"/>
                                         <div class="card-body">

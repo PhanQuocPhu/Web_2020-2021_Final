@@ -3,7 +3,9 @@ import java.io.PrintWriter;
 import java.util.Date;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
+import beans.Course;
 import beans.User;
+import models.CourseModel;
 import models.UserModel;
 import utils.ServletUtils;
 
@@ -16,6 +18,7 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.List;
 import java.util.Optional;
 
 @WebServlet(name = "AccountServlet", urlPatterns = "/Account/*")
@@ -126,6 +129,11 @@ public class AccountServlet extends HttpServlet {
                 ServletUtils.forward("/views/vwAccount/Login.jsp", request, response);
                     break;
             case "/Profile":
+                int id = Integer.parseInt(request.getParameter("id"));
+                Optional<User> userin = UserModel.findById(id);
+                if(userin.isPresent()) {
+                    request.setAttribute("user", userin.get());
+                }
                 ServletUtils.forward("/views/vwAccount/Profile.jsp", request, response);
                 break;
             case "/IsAvailable":

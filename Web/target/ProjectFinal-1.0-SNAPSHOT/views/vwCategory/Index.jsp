@@ -30,7 +30,9 @@
             </div>
             <c:choose>
                 <c:when test ="${categories.size() == 0}">
-                    <p> Không có dữ liệu</p>
+                    <div class="d-flex">
+                        <img src="https://i.imgur.com/eNEfDn0.png" alt="" class="" style="margin: 20px auto">
+                    </div>
                 </c:when>
                 <c:otherwise>
                     <table class="table">

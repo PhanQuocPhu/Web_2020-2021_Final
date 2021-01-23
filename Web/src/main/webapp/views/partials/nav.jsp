@@ -14,7 +14,7 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="${pageContext.request.contextPath}/Home">
                 <img src="https://i.imgur.com/p8aGnla.png" alt="" id="img_logo" style="height: 34px; width: 136px">
             </a>
             <ul class="navbar-nav mr-auto">
@@ -58,7 +58,7 @@
                                     Management</a>
 
                             </c:if>
-                            <a class="dropdown-item " href="${pageContext.request.contextPath}/Account/Profile">
+                            <a class="dropdown-item " href="${pageContext.request.contextPath}/Account/Profile?id=${authUser.id}">
                                 <i class="fa fa-user"></i>
 
                                 Profile</a>

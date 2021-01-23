@@ -13,7 +13,17 @@ public class CourseModel {
     public static List<Course> getAllCourses () {
         String sql = "select * from course";
         try (Connection con = DbUtils.getConnection()) {
-            return con.createQuery(sql).executeAndFetch(Course.class);
+            return con.createQuery(sql)
+                    .executeAndFetch(Course.class);
+        }
+    }
+    public static List<Course> getAllCoursesPage (int limit, int offset) {
+        String sql = "select * from course where limit :limit offset :offset";
+        try (Connection con = DbUtils.getConnection()) {
+            return con.createQuery(sql)
+                    .addParameter("limit", limit)
+                    .addParameter("offset", offset)
+                    .executeAndFetch(Course.class);
         }
     }
 

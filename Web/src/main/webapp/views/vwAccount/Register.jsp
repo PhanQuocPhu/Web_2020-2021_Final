@@ -95,21 +95,21 @@
                     const inValidName = document.getElementById("InValidName");
                     if(name.value.length === 0) {
                         inValidName.style.visibility = 'visible';
-                        inValidName.innerHTML = 'First name is required.'
+                        inValidName.innerHTML = 'Name is required.'
                     }
                     else if(name.value.match(letters)) {
                         inValidName.style.visibility = 'hidden';
                     }
                     else {
                         inValidName.style.visibility = 'visible';
-                        inValidName.innerHTML = 'Last name must only text.'
+                        inValidName.innerHTML = 'Name must only text.'
                         c = true;
                     }
                 }
                 function ValidateEmail() {
                     const mailformat = /^([A-Za-z0-9._%+-])+@([A-Za-z]{5})+\.([A-Za-z]{3})$/;
                     const txtEmail =  document.getElementById("txtEmail");
-                    const InValidEmail =  document.getElementById("InValidName");
+                    const InValidEmail =  document.getElementById("InValidEmail");
 
                     if(txtEmail.value.length === 0) {
                         InValidEmail.style.visibility = 'visible';
@@ -172,7 +172,7 @@
                         </div>
                         <div class="form-group">
                             <label for="txtEmail">Email: </label>
-                            <input type="text" class="form-control" id="txtEmail" name = "email" >
+                            <input type="text" class="form-control" id="txtEmail" name = "email"onblur="ValidateEmail()" >
                         </div>
                         <div class="InValid" id="InValidEmail">
                         </div>
