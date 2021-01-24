@@ -2,9 +2,11 @@ package controllers;
 
 import beans.Categories_type;
 import beans.Category;
+import beans.User;
 import models.CateTypeModel;
 import models.CategoryModel;
 import models.CourseModel;
+import models.UserModel;
 import utils.ServletUtils;
 import beans.Course;
 
@@ -69,7 +71,8 @@ public class AdminProductServlet extends HttpServlet {
 //                List<Category> list3 = CategoryModel.getAllCategoryByid(1);
 
                // request.setAttribute("category", list3);
-
+                List<User> user = UserModel.getAlluser();
+                request.setAttribute("user", user);
                 request.setAttribute("catetype", catetypes);
                 request.setAttribute("course", list1);
                 ServletUtils.forward("/views/vwAdminProduct/Index.jsp", request, response);
@@ -102,6 +105,8 @@ public class AdminProductServlet extends HttpServlet {
                 String url = request.getRequestURI().toString().substring(14);
                 request.setAttribute("url", url);
                 int courseID = Integer.parseInt(request.getParameter("id"));
+                List<User> u = UserModel.getAlluser();
+                request.setAttribute("user", u);
                 Optional<Course> c = CourseModel.findById(courseID);
                 if(c.isPresent()){
                     request.setAttribute("course", c.get());

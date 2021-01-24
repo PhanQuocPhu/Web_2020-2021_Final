@@ -7,8 +7,14 @@
 <t:main>
     <jsp:attribute name="css">
          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<%--        <link rel="stylesheet" href="${pageContext.request.contextPath}/public/css/home.css">--%>
-
+       <style type="text/css">
+            .navbar {
+                background-color: #151515 !important;
+            }
+            .course_title a:hover {
+                text-decoration: none
+            }
+       </style>
     </jsp:attribute>
     <jsp:body>
         <div class="bg" style="background-image: url('https://fullstack.edu.vn/assets/images/home-img.jpg');
@@ -41,7 +47,7 @@
                     line-height: 4.6rem;
                     font-weight: 700;
                     margin: 1.6rem 0 2.4rem 0;">Học, học mãi, học nữa !</h1>
-                        <a href="" class="btn" style="
+                        <a href="${pageContext.request.contextPath}/Admin/Product" class="btn" style="
                     padding: 12px 20px;
                     background-color: #f05123;
                     width: 180px;
@@ -90,48 +96,53 @@
                 <p>Những khóa học có số lượng học viên theo học nhiều nhất và có phản hồi tích cực nhất</p>
             </div>
 
-
             <div class="row" >
                 <c:forEach var ="c" items = "${course}">
-                <div class="col-sm-4">
-                  <div class="card">
-                      <div class="card-header">
-                          <a href="${pageContext.request.contextPath}/Admin/Product/Detail?id=${c.courseID}">
-                          <img src="${c.url}" alt="" class="h-100 w-100 course_img">
-                          </a>
-                      </div>
-                      <div class="card-body">
-                          <div class="course_title ">
-                              <a href="${pageContext.request.contextPath}/Admin/Product/Detail?id=${c.courseID}">
-                                      ${c.courseName}
-                              </a>
-                          </div>
-                          <div class="course_shortDes">
-                                  ${c.short_Des}
-                          </div>
-                          <div class="course_detail d-flex mt-4">
-                              <span class="course_lecturer">
-                                  <i class="fa fa-user img-user"></i>
-                                  Châu Đặng</span>
-                             <span class="course_price ">
-                                      <fmt:formatNumber value="${c.price}" type="number"/>
-                                  <sup>vnd</sup>
-                                 </span>
-                              <span class="course_level">
-                                <c:choose>
-                                    <c:when test = "${c.levelID == 1}">
-                                       Cơ bản
-                                    </c:when>
 
-                                    <c:otherwise>
-                                       Nâng cao
-                                    </c:otherwise>
-                                </c:choose>
-                              </span>
+                        <div class="col-sm-4">
+                          <div class="card">
+                              <div class="card-header">
+                                  <a href="${pageContext.request.contextPath}/Admin/Product/Detail?id=${c.courseID}">
+                                  <img src="${c.url}" alt="" class="h-100 w-100 course_img">
+                                  </a>
+                              </div>
+                              <div class="card-body">
+                                  <div class="course_title ">
+                                      <a href="${pageContext.request.contextPath}/Admin/Product/Detail?id=${c.courseID}">
+                                              ${c.courseName}
+                                      </a>
+                                  </div>
+                                  <div class="course_shortDes">
+                                          ${c.short_Des}
+                                  </div>
+                                  <div class="course_detail d-flex mt-4">
+                                      <span class="course_lecturer">
+                                          <i class="fa fa-user img-user"></i>
+                                         <c:forEach var ="u" items ="${user}">
+                                            <c:if test="${c.lecturerID == u.id}">
+                                                   ${u.name}
+                                            </c:if>
+                                         </c:forEach>
+                                      </span>
+                                     <span class="course_price ">
+                                              <fmt:formatNumber value="${c.price}" type="number"/>
+                                          <sup>vnd</sup>
+                                         </span>
+                                      <span class="course_level">
+                                        <c:choose>
+                                            <c:when test = "${c.levelID == 1}">
+                                               Cơ bản
+                                            </c:when>
+
+                                            <c:otherwise>
+                                               Nâng cao
+                                            </c:otherwise>
+                                        </c:choose>
+                                      </span>
+                                  </div>
+                              </div>
                           </div>
-                      </div>
-                  </div>
-                </div>
+                        </div>
                 </c:forEach>
             </div>
             <div class="d-flex justify-content-center">

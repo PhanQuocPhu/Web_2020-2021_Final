@@ -38,10 +38,32 @@
                                         <img src="${c.url}" alt="${c.courseName}" class="card-img-top"/>
                                         <div class="card-body">
                                             <h6 class="card-title">${c.courseName}</h6>
-                                            <h5 class="card-title text-value">
-                                                <fmt:formatNumber value="${c.price}" type="number"/>
-                                            </h5>
                                             <p class="card-text">${c.short_Des}</p>
+                                            <div class="course_detail d-flex mt-4">
+                                              <span class="course_lecturer">
+                                                  <i class="fa fa-user img-user"></i>
+                                              <c:forEach var ="u" items ="${user}">
+                                                  <c:if test="${c.lecturerID == u.id}">
+                                                      ${u.name}
+                                                  </c:if>
+                                              </c:forEach>
+                                              </span>
+                                                <span class="course_price ">
+                                          <fmt:formatNumber value="${c.price}" type="number"/>
+                                      <sup>vnd</sup>
+                                     </span>
+                                                <span class="course_level">
+                                    <c:choose>
+                                        <c:when test = "${c.levelID == 1}">
+                                            Cơ bản
+                                        </c:when>
+
+                                        <c:otherwise>
+                                            Nâng cao
+                                        </c:otherwise>
+                                    </c:choose>
+                                  </span>
+                                            </div>
                                         </div>
                                         <div class="card-footer text-muted">
                                             <a href="${pageContext.request.contextPath}/Admin/Product/Detail?id=${c.courseID}" class="btn btn-sm btn-outline-primary" role = "button">

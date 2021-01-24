@@ -4,6 +4,7 @@ import beans.Course;
 import beans.User;
 import models.CourseModel;
 import models.ProductModel;
+import models.UserModel;
 import utils.ServletUtils;
 
 import javax.servlet.Servlet;
@@ -36,6 +37,8 @@ public class HomeServlet extends HttpServlet {
 //                List<Course> list = CourseModel.getAllCourses();
 //                request.setAttribute("course", list);
                 List<Course> list = CourseModel.getAllCourses();
+                List<User> user = UserModel.getAlluser();
+                request.setAttribute("user", user);
                 request.setAttribute("course", list.subList(0,6));
                 ServletUtils.forward("/views/vwHome/Index.jsp", request, response);
                 break;

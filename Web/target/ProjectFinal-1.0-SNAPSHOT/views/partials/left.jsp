@@ -15,7 +15,6 @@
               <ul class="list">
                   <ul class="list-item">
                    <c:forEach var ="d" items ="${categorybyid}">
-
                        <c:if test="${d.id_type == c.id_type}">
                                <li class="item">
                                    <a href="${pageContext.request.contextPath}/Admin/Product/ByCat?id=${d.catID}">

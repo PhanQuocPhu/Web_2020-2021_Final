@@ -108,6 +108,15 @@
                              </c:otherwise>
                          </c:choose>
                     </span>
+                    <span class="text-dark" style="margin-right: 10px" >Giảng viên:</span>
+                    <span class="text-dark">
+                         <c:forEach var ="u" items ="${user}">
+                             <c:if test="${course.lecturerID == u.id}">
+                                 ${u.name}
+                             </c:if>
+                         </c:forEach>
+                    </span>
+
                     <span class="text-dark" style="display: block" >Học phí:</span>
                     <span class="text-danger font-weight-bold"style="font-size: 20px; display: block;
                     border-bottom: 1px dotted #b80257;">

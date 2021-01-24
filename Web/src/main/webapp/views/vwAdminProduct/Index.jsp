@@ -75,11 +75,12 @@
                     display: block;
              }
              .list-item {
-                 width: 250px;
+                 min-width: 250px;
                  list-style: none;
              }
              .list-item li{
                  transition: all linear 0.4s;
+                 padding: 4px 0;
              }
              .list-item li a {
                  font-size: 15px;
@@ -121,9 +122,14 @@
                                                     ${c.short_Des}
                                             </div>
                                             <div class="course_detail d-flex mt-4">
-                                  <span class="course_lecturer">
-                                      <i class="fa fa-user img-user"></i>
-                                      Châu Đặng</span>
+                                              <span class="course_lecturer">
+                                                  <i class="fa fa-user img-user"></i>
+                                              <c:forEach var ="u" items ="${user}">
+                                                  <c:if test="${c.lecturerID == u.id}">
+                                                      ${u.name}
+                                                  </c:if>
+                                              </c:forEach>
+                                              </span>
                                                 <span class="course_price ">
                                           <fmt:formatNumber value="${c.price}" type="number"/>
                                       <sup>vnd</sup>

@@ -105,6 +105,7 @@
             align-items: center;
 
         }
+
         .course_level {
             min-width: 89px;
             padding: 0 9px;

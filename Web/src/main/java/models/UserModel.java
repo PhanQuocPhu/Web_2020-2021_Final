@@ -48,7 +48,13 @@ public class UserModel {
             }
             return Optional.ofNullable(list.get(0));
         }
-
+    }
+    public  static List<User> getAlluser() {
+        String sql = "select * from users";
+        try(Connection con = DbUtils.getConnection()) {
+            return con.createQuery(sql)
+                    .executeAndFetch(User.class);
+        }
     }
 
 }
