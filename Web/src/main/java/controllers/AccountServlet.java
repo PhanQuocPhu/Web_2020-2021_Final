@@ -79,7 +79,7 @@ public class AccountServlet extends HttpServlet {
         int permission = 1;
         User user = new User(-1, username,bcryptHashString,name,email, dob,permission);
         UserModel.add(user);
-        ServletUtils.redirect("/AddUser", request, response);
+        ServletUtils.redirect("/Home", request, response);
 
     }
     private void postLogin(HttpServletRequest request,HttpServletResponse response)throws ServletException, IOException  {

@@ -1,9 +1,13 @@
 package controllers;
 
+import beans.Categories_type;
+import beans.Category;
+import models.CateTypeModel;
+import models.CategoryModel;
 import models.CourseModel;
 import utils.ServletUtils;
 import beans.Course;
-import models.ProductModel;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -57,8 +61,17 @@ public class AdminProductServlet extends HttpServlet {
 //                request.setAttribute("recordsPerPage", recordsPerPage);
 
                 List<Course> list1 = CourseModel.getAllCourses();
+                List<Categories_type> catetypes = CateTypeModel.getAllCateType();
+                List <Category> allcate = CategoryModel.getAllCategory();
+                request.setAttribute("categorybyid", allcate);
+
+                //int id_type = Integer.parseInt(request.getParameter("id_type"));
+//                List<Category> list3 = CategoryModel.getAllCategoryByid(1);
+
+               // request.setAttribute("category", list3);
+
+                request.setAttribute("catetype", catetypes);
                 request.setAttribute("course", list1);
-                System.out.println(list1);
                 ServletUtils.forward("/views/vwAdminProduct/Index.jsp", request, response);
                 break;
             case "/ByCat":

@@ -30,6 +30,10 @@
                         <label for="txtCatName">Name Category: </label>
                         <input type="text" class="form-control" id="txtCatName" name = "CatName" autofocus>
                     </div>
+                    <div class="form-group">
+                        <label for="txtidtype">Name Category: </label>
+                        <input type="text" class="form-control" id="txtidtype" name = "id_type" autofocus>
+                    </div>
                     <div class="card-footer">
                         <a href="${pageContext.request.contextPath}/Admin/Category"  role = "button" class="btn btn-primary">
                             <i class=""></i>

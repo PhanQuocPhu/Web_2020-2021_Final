@@ -37,7 +37,8 @@ public class AdminCategoryServlet extends HttpServlet {
 
     private void addCategory(HttpServletRequest request,HttpServletResponse response)throws ServletException, IOException  {
         String name = request.getParameter("CatName");
-        Category c = new Category(-1, name);
+        int idtype = Integer.parseInt(request.getParameter("id_type"));
+        Category c = new Category(-1, name, idtype);
         CategoryModel.saveCategory(c);
         ServletUtils.redirect("/Admin/Category", request, response);
     }
@@ -50,7 +51,9 @@ public class AdminCategoryServlet extends HttpServlet {
     private void updateCategory(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("CatID"));
         String name = request.getParameter("CatName");
-        Category c = new Category(id, name);
+        int idtype = Integer.parseInt(request.getParameter("id_type"));
+
+        Category c = new Category(id, name,idtype);
         CategoryModel.update(c);
         ServletUtils.redirect("/Admin/Category", request, response);
 

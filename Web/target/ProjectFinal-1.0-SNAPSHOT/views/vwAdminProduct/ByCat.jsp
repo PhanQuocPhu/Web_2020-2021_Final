@@ -44,7 +44,7 @@
                                             <p class="card-text">${c.short_Des}</p>
                                         </div>
                                         <div class="card-footer text-muted">
-                                            <a href="${pageContext.request.contextPath}/Product/Detail?id=${c.courseID}" class="btn btn-sm btn-outline-primary" role = "button">
+                                            <a href="${pageContext.request.contextPath}/Admin/Product/Detail?id=${c.courseID}" class="btn btn-sm btn-outline-primary" role = "button">
                                                 <i class="fa fa-eye" aria-hidden="true"></i> Details
                                             </a>
                                             <a href="#" class="btn btn-sm btn-outline-success" role = "button">

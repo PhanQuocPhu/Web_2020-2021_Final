@@ -1,6 +1,9 @@
 package models;
 
+import beans.Categories_type;
 import beans.Category;
+import beans.Course;
+import beans.Product;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import utils.DbUtils;
@@ -50,12 +53,21 @@ public class CategoryModel {
     }
 
     public static void update(Category c) {
-        final String sql = "update categories set CatName = :CatName where CatID = :CatID";
+        final String sql = "update categories set CatName = :CatName, id_type =:id_type where CatID = :CatID";
         try (Connection con = DbUtils.getConnection()) {
             con.createQuery(sql)
                     .addParameter("CatID", c.getCatID())
+                    .addParameter("id_type",c.getId_type())
                     .addParameter("CatName", c.getCatName())
                     .executeUpdate();
+        }
+    }
+    public static List<Category> getAllCategoryByid(int id_type) {
+        final String sql = "select * from categories where id_type = :id_type";
+        try(Connection con = DbUtils.getConnection()) {
+            return con.createQuery(sql)
+                    .addParameter("id_type", id_type)
+                    .executeAndFetch(Category.class);
         }
     }
 

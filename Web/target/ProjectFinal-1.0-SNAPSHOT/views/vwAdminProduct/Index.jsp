@@ -9,7 +9,6 @@
 <%@ taglib prefix ="t" tagdir="/WEB-INF/tags" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
-
 <t:main>
      <jsp:attribute name="css">
          <style type="text/css">
@@ -37,6 +36,61 @@
              .href:hover{
                  text-decoration: none;
              }
+             .col-sm-4 {
+                 padding-left: 10px;
+                 padding-right: 10px;
+             }
+             .list-group-item {
+                 font-weight: bold;
+                 position: relative;
+                 font-size: 18px;
+                 background-color: #f8f9fa;
+                 padding-bottom: 10px;
+             }
+            li a {
+                color: black !important;
+            }
+             li a:hover{
+                 text-decoration: none;
+                 cursor: pointer;
+                 color: #f05123 !important;
+             }
+
+             .list span {
+                 color: #4d3f3f;
+                 display: block;
+             }
+             .list {
+                 display: none;
+                 position: absolute;
+                 right: -253px;
+                 top: 0px;
+                 background-color: #f8f9fa;
+                 border-radius: 8px;
+                 list-style: none;
+                 z-index: 12;
+                 padding: 4px ;
+             }
+             .list-group-item:hover ul{
+                    display: block;
+             }
+             .list-item {
+                 width: 250px;
+                 list-style: none;
+             }
+             .list-item li{
+                 transition: all linear 0.4s;
+             }
+             .list-item li a {
+                 font-size: 15px;
+                 font-weight: normal;
+
+             }
+             .list-item li:hover {
+                 transform: translateX(10px);
+             }
+
+
          </style>
     </jsp:attribute>
     <jsp:body>

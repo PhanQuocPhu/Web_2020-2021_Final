@@ -29,7 +29,7 @@
                 </a>
             </div>
             <c:choose>
-                <c:when test ="${categories.size() == 0}">
+                <c:when test ="${cate_type.size() == 0}">
                     <div class="d-flex">
                         <img src="https://i.imgur.com/eNEfDn0.png" alt="" class="" style="margin: 20px auto">
                     </div>
@@ -40,17 +40,22 @@
                         <tr>
                             <th scope="col ">Cate id</th>
                             <th scope="col">Name Category</th>
+                            <th scope="col">Type Category</th>
+
                             <th>&nbsp</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <c:forEach var ="c" items = "${categories}">
+                        <c:forEach var ="c" items = "${cate_type}">
                             <tr>
                                 <th scope="row">
                                         ${c.catID}
                                 </th>
                                 <td>
                                         ${c.catName}
+                                </td>
+                                <td>
+                                        ${c.id_type}
                                 </td>
                                 <td class="text-right">
                                     <a href="${pageContext.request.contextPath}/Admin/Category/Edit?id=${c.catID}"
