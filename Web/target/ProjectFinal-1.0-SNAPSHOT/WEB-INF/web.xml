@@ -23,7 +23,10 @@
         <url-pattern>/Account/AddUser</url-pattern>
         <url-pattern>/Admin/Category</url-pattern>
         <url-pattern>/Admin/Category/Add</url-pattern>
-
+        <url-pattern>/Admin/Category/Edit</url-pattern>
+        <url-pattern>/Admin/Course</url-pattern>
+        <url-pattern>/Admin/Course/Add</url-pattern>
+        <url-pattern>/Admin/Course/Edit</url-pattern>
 
     </filter-mapping>
     <jsp-config>

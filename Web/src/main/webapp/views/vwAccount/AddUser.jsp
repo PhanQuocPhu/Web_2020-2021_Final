@@ -89,20 +89,15 @@
                     }
                 }
                 function allLetter() {
-                    var letters =  /^[a-zA-Z ]*$/;
                     const name = document.getElementById("txtName");
                     const inValidName = document.getElementById("InValidName");
                     if(name.value.length === 0) {
                         inValidName.style.visibility = 'visible';
                         inValidName.innerHTML = 'Name is required.'
                     }
-                    else if(name.value.match(letters)) {
-                        inValidName.style.visibility = 'hidden';
-                    }
                     else {
-                        inValidName.style.visibility = 'visible';
-                        inValidName.innerHTML = 'Name must only text.'
-                        c = true;
+                        inValidName.style.visibility = 'hidden';
+
                     }
                 }
                 function ValidateEmail() {
@@ -134,7 +129,7 @@
                 <div class="card-header" style="display: flex;
                         justify-content: center;height: 50px; background-color: #b80257;color: #fff">
                     <div class="align-items-center ">
-                        <h4 class=" "style="line-height: 50px" >Add user</h4>
+                        <h4 class=" "style="line-height: 50px" >Add new Lecturer</h4>
                     </div>
                 </div>
                 <form method="POST" id="frmRegister">

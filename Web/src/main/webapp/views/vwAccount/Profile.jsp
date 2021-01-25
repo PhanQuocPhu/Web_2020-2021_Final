@@ -216,13 +216,13 @@
                                         <div class="user__group-input ">
                                             <label class="label-name label-name--block">User Name</label>
                                             <input class="user__input-name"
-                                                   type="text" name="firstname">
+                                                   type="text" name="firstname" value="${user.username}">
                                         </div>
                                     </div>
                                     <div class="col-6">
                                         <div class="user__group-input ">
                                             <label class="label-name label-name--block">Password</label>
-                                            <input class="user__input-name" type="text" disabled name="lastname">
+                                            <input class="user__input-name" type="text" disabled name="lastname" value="xxxxxx">
                                         </div>
                                     </div>
                                 </div>
@@ -230,12 +230,12 @@
                                 <div class="user__group-input">
                                     <label  class="label-name">Full Name</label>
                                     <input row="6" class="user__input-name "
-                                              name="decription" >
+                                              name="decription" value="${user.name}">
                                 </div>
                                 <div class="user__group-input">
                                     <label  class="label-name">Email</label>
                                     <input class="user__input-name"
-                                           type="email" name="name" disabled>
+                                           type="email" name="name" value="${user.email}">
                                 </div>
                                 <div class="user__group-input">
                                     <label  class="label-name">Day of Birth</label>

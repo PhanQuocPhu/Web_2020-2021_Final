@@ -63,7 +63,8 @@
              .list {
                  display: none;
                  position: absolute;
-                 right: -253px;
+                 width: 320px;
+                 right: -321px;
                  top: 0px;
                  background-color: #f8f9fa;
                  border-radius: 8px;
@@ -75,8 +76,9 @@
                     display: block;
              }
              .list-item {
-                 min-width: 250px;
+                 min-width: 300px;
                  list-style: none;
+                 padding-left: 10px;
              }
              .list-item li{
                  transition: all linear 0.4s;

@@ -14,6 +14,12 @@
             .course_title a:hover {
                 text-decoration: none
             }
+            .dropdown {
+                width: 200px;
+            }
+            .dropdown-menu {
+                min-width: 230px;
+            }
        </style>
     </jsp:attribute>
     <jsp:body>

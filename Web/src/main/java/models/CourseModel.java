@@ -1,5 +1,6 @@
 package models;
 
+import beans.Category;
 import beans.Course;
 import beans.Product;
 import beans.User;
@@ -37,7 +38,44 @@ public class CourseModel {
                     .executeAndFetch(Course.class);
         }
     }
-
+    public static void addCourse(Course c) {
+        final String sql = "INSERT INTO course (CourseName, Short_Des,Full_Des,Price,CatID,LecturerID,LevelID,Url) VALUES (:CourseName, :Short_Des,:Full_Des,:Price,:CatID,:LecturerID,:LevelID,:Url) ";
+        try (Connection con = DbUtils.getConnection()) {
+            con.createQuery(sql)
+                    .addParameter("CourseName", c.getCourseName())
+                    .addParameter("Short_Des", c.getShort_Des())
+                    .addParameter("Full_Des", c.getFull_Des())
+                    .addParameter("Price", c.getPrice())
+                    .addParameter("CourseName", c.getCatID())
+                    .addParameter("Short_Des", c.getLecturerID())
+                    .addParameter("Full_Des", c.getLevelID())
+                    .addParameter("Price", c.getUrl())
+                    .executeUpdate();
+        }
+    }
+    public static void updateCourse(Course c) {
+        final String sql = "update course set  CourseName= :CourseName, Short_Des =:Short_Des, Full_Des =:Full_Des,Price=:Price,CatID=:CatID,LecturerID =:LecturerID, LevelID =:LevelID, Url=: Url where CourseID = :CourseID ";
+        try (Connection con = DbUtils.getConnection()) {
+            con.createQuery(sql)
+                    .addParameter("CourseName", c.getCourseName())
+                    .addParameter("Short_Des", c.getShort_Des())
+                    .addParameter("Full_Des", c.getFull_Des())
+                    .addParameter("Price", c.getPrice())
+                    .addParameter("CatID", c.getCatID())
+                    .addParameter("LecturerID", c.getLecturerID())
+                    .addParameter("LevelID", c.getLevelID())
+                    .addParameter("Url", c.getUrl())
+                    .executeUpdate();
+        }
+    }
+    public static void delete(int id) {
+        final String sql = "delete from course where CourseID = :CourseID";
+        try (Connection con = DbUtils.getConnection()) {
+            con.createQuery(sql)
+                    .addParameter("CourseID", id)
+                    .executeUpdate();
+        }
+    }
     public  static Optional<Course> findById(int id) {
         String sql = "select * from course where CourseID = :CourseID";
         try(Connection con = DbUtils.getConnection()) {
@@ -60,6 +98,9 @@ public class CourseModel {
                     .executeScalar(Integer.class);
         }
     }
+//    SELECT * FROM course
+//WHERE CourseName LIKE '%a%';
+    
 //    public static List<Course> getNameLectureByCourseid () {
 //        String sql = "select * from course,users where LevelID =: id";
 //        try (Connection con = DbUtils.getConnection()) {

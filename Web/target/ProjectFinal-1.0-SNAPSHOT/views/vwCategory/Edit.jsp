@@ -35,6 +35,10 @@
                                 <label for="txtCatName">Category</label>
                                 <input type="text" class="form-control" id="txtCatName" name="CatName" autofocus value="${category.catName}">
                             </div>
+                            <div class="form-group">
+                                <label for="txtCatName">Cate Type</label>
+                                <input type="text" class="form-control" id="txtCatType" name="id_type" autofocus value="${category.id_type}">
+                            </div>
                         </div>
                         <div class="card-footer">
                             <a class="btn btn-primary" href="${pageContext.request.contextPath}/Admin/Category/" role="button">

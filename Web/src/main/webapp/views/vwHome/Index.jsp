@@ -14,6 +14,12 @@
             .course_title a:hover {
                 text-decoration: none
             }
+            .dropdown {
+                width: 200px;
+            }
+            .dropdown-menu {
+                min-width: 230px;
+            }
        </style>
     </jsp:attribute>
     <jsp:body>
@@ -69,7 +75,6 @@
         <div class="container-fluid">
             <div class="module d-flex justify-content-around text-center pt-5">
                 <div class="index-module">
-                    
                     <img src="https://fullstack.edu.vn/images/feature-1.png?32035f34c520f99c24c91ef22921b547"
                          alt="" style="width: 76px; height: 76px;">
                     <h5 class="mt-5">
@@ -98,7 +103,6 @@
 
             <div class="row" >
                 <c:forEach var ="c" items = "${course}">
-
                         <div class="col-sm-4">
                           <div class="card">
                               <div class="card-header">

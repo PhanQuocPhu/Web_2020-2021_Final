@@ -36,10 +36,11 @@ public class CategoryModel {
 
     }
     public static void saveCategory(Category c) {
-        final String sql = "INSERT INTO categories (CatName) VALUES (:CatName)";
+        final String sql = "INSERT INTO categories (CatName, id_type) VALUES (:CatName, :id_type) ";
         try (Connection con = DbUtils.getConnection()) {
             con.createQuery(sql)
                     .addParameter("CatName", c.getCatName())
+                    .addParameter("id_type", c.getId_type())
                     .executeUpdate();
         }
     }
@@ -62,26 +63,5 @@ public class CategoryModel {
                     .executeUpdate();
         }
     }
-    public static List<Category> getAllCategoryByid(int id_type) {
-        final String sql = "select * from categories where id_type = :id_type";
-        try(Connection con = DbUtils.getConnection()) {
-            return con.createQuery(sql)
-                    .addParameter("id_type", id_type)
-                    .executeAndFetch(Category.class);
-        }
-    }
-
 }
-//    public static List<Category> getAll() {
-//        return new ArrayList<>(
-//                Arrays.asList(
-//                new Category(1, "Sách"),
-//                new Category(2, "Quần áo"),
-//                new Category(3, "Điện thoại"),
-//                new Category(4, "Váy"),
-//                new Category(5, "Loa"),
-//                new Category(6, "Máy tính bảng")
-//                )
-//        );
-//    }
 

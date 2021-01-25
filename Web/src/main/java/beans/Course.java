@@ -3,11 +3,11 @@ package beans;
 public class Course {
     int CourseID, Price, CatID,LecturerID,LevelID;
     String CourseName, Short_Des, Full_Des, Url;
-    String Image;
+
     public Course () {
 
     }
-    public Course(int courseID, int price, int catID, int lecturerID, int levelID, String courseName, String short_Des, String full_Des, String image, String url) {
+    public Course(int courseID, int price, int catID, int lecturerID, int levelID, String courseName, String short_Des, String full_Des,String url) {
         CourseID = courseID;
         Price = price;
         CatID = catID;
@@ -16,7 +16,6 @@ public class Course {
         CourseName = courseName;
         Short_Des = short_Des;
         Full_Des = full_Des;
-        Image = image;
         Url = url;
     }
 
@@ -60,9 +59,6 @@ public class Course {
         return Full_Des;
     }
 
-    public String getImage() {
-        return Image;
-    }
 
     public void setCourseID(int courseID) {
         CourseID = courseID;
@@ -96,7 +92,4 @@ public class Course {
         Full_Des = full_Des;
     }
 
-    public void setImage(String image) {
-        Image = image;
-    }
 }

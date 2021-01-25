@@ -29,7 +29,7 @@
                 </a>
             </div>
             <c:choose>
-                <c:when test ="${cate_type.size() == 0}">
+                <c:when test ="${categories.size() == 0}">
                     <div class="d-flex">
                         <img src="https://i.imgur.com/eNEfDn0.png" alt="" class="" style="margin: 20px auto">
                     </div>
@@ -46,7 +46,7 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <c:forEach var ="c" items = "${cate_type}">
+                        <c:forEach var ="c" items = "${categories}">
                             <tr>
                                 <th scope="row">
                                         ${c.catID}

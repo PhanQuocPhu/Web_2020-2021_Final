@@ -10,7 +10,7 @@
 <div class="card">
     <div class="list-group list-group-flush">
       <c:forEach var ="c" items="${catetype}">
-          <div class="list-group-item list-group-item-action showcategory">
+          <div class="list-group-item list-group-item-action showcategory d-flex justify-content-between">
                  <span> ${c.cat_type_name}</span>
               <ul class="list">
                   <ul class="list-item">
@@ -25,6 +25,7 @@
                    </c:forEach>
                   </ul>
               </ul>
+              <i class="fa fa-caret-right"></i>
           </div>
       </c:forEach>
     </div>

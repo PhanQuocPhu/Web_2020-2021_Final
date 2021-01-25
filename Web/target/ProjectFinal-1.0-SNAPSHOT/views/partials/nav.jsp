@@ -38,31 +38,32 @@
                 <c:when test="${auth}">
                     <form id="frmLogout" method="post" action="${pageContext.request.contextPath}/Account/Logout"></form>
                     <li class="nav-item dropdown">
-                        <a class="dropdown-toggle text-white nav-link " href="" role="button" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="dropdown-toggle text-white nav-link " style="color: #151515" href="" role="button" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <img src="https://i.imgur.com/ZFSztUc.png" alt=""style="height: 30px; width: 30px; border-radius: 50%">
                             Hi! <b>${authUser.username}</b>
+
+
                         </a>
 
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown" style="margin: 0.5rem 0 0;">
                             <c:if test = "${authUser.permission == 1}">
-                                <a class="dropdown-item " href="${pageContext.request.contextPath}/Admin/Category">
+                                <a class="dropdown-item "  style="color: #151515" href="${pageContext.request.contextPath}/Admin/Category">
                                     <i class="fa fa-tasks"></i>
                                     Management category</a>
-                                <a class="dropdown-item " href="${pageContext.request.contextPath}/Course">
+                                <a class="dropdown-item "  style="color: #151515" href="${pageContext.request.contextPath}/Admin/Course">
                                     <i class="fa fa-tasks"></i>
                                     Management course</a>
                             </c:if>
                             <c:if test = "${authUser.permission == 2}">
-                                <a class="dropdown-item " href="${pageContext.request.contextPath}/Account/AddUser">
+                                <a class="dropdown-item " style="color: #151515" href="${pageContext.request.contextPath}/Account/AddUser">
                                     <i class="fa fa-tasks"></i>
-                                    Management</a>
-
+                                    Lecturer</a>
                             </c:if>
-                            <a class="dropdown-item " href="${pageContext.request.contextPath}/Account/Profile?id=${authUser.id}">
+                            <a class="dropdown-item " style="color: #151515" href="${pageContext.request.contextPath}/Account/Profile?id=${authUser.id}">
                                 <i class="fa fa-user"></i>
 
                                 Profile</a>
-                            <a class="dropdown-item " href="javascript:$('#frmLogout').submit();">
+                            <a class="dropdown-item " style="color: #151515" href="javascript:$('#frmLogout').submit();">
                                 <i class="fa fa-sign-out"></i>
                                 Logout</a>
                         </div>
@@ -70,12 +71,12 @@
                 </c:when>
                 <c:otherwise >
                     <li class="nav-item ">
-                        <a class="nav-link text-white" href="${pageContext.request.contextPath}/Account/Register">
+                        <a class="nav-link text-white"  style="color: #151515" href="${pageContext.request.contextPath}/Account/Register">
                             <i class="fa fa-user-plus "></i>
                             Register <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link text-white" href="${pageContext.request.contextPath}/Account/Login">
+                        <a class="nav-link text-white"  style="color: #151515" href="${pageContext.request.contextPath}/Account/Login">
                             <i class="fa fa-sign-in " aria-hidden="true"></i>
                             Login</a>
                     </li>

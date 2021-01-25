@@ -90,21 +90,17 @@
                     }
                 }
                 function allLetter() {
-                    var letters =  /^[a-zA-Z ]*$/;
+
                     const name = document.getElementById("txtName");
                     const inValidName = document.getElementById("InValidName");
                     if(name.value.length === 0) {
                         inValidName.style.visibility = 'visible';
                         inValidName.innerHTML = 'Name is required.'
                     }
-                    else if(name.value.match(letters)) {
+                    else{
                         inValidName.style.visibility = 'hidden';
                     }
-                    else {
-                        inValidName.style.visibility = 'visible';
-                        inValidName.innerHTML = 'Name must only text.'
-                        c = true;
-                    }
+
                 }
                 function ValidateEmail() {
                     const mailformat = /^([A-Za-z0-9._%+-])+@([A-Za-z]{5})+\.([A-Za-z]{3})$/;
